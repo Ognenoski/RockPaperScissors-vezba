@@ -4,18 +4,28 @@ body {
 }
 .rock {
   color: #fda0fd;
+  width: 155px;
+  display: flex;
+  justify-content: center;
 }
 .paper {
   color: #7ffdfd;
+  width: 155px;
+  display: flex;
+  justify-content: center;
 }
 .scissors {
   color: #fcf003;
+  width: 155px;
+  display: flex;
+  justify-content: center;
 }
 .container {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  align-items: center;
 }
+
 p {
   display: flex;
   justify-content: center;
@@ -119,6 +129,10 @@ p {
   box-shadow: 0 0 20px rgba(66, 150, 40, 0.1);
 }
 .CardScore h3 {
+  color: #6c9436;
+}
+.ComputerScore,
+.UserScore {
   color: #6c9436;
 }
 .CardScore h3.you,
