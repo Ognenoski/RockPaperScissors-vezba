@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 5px;
 }
 
 p {
@@ -44,7 +45,9 @@ p {
 .Cards {
   display: flex;
   justify-content: center;
-  gap: 75px;
+  align-items: center;
+  gap: 110px;
+  padding: 0 10px;
   background-color: #202020;
 }
 .CardRock {
