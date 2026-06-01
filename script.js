@@ -7,12 +7,14 @@ const computerScoreText = document.querySelector(".ComputerScore");
 
 let userScore = 0;
 let computerScore = 0;
+let gameOver = false;
 let history = {
     rock: 0,
     paper: 0,
     scissors: 0,
 };
 rock.addEventListener("click", () => {
+    if (gameOver) return;
     console.log("rock clicked");
     const userChoice = "rock";
     history[userChoice]++;
@@ -60,10 +62,12 @@ rock.addEventListener("click", () => {
             computerScoreText.innerText = computerScore;
         }
         if (userScore === 5) {
+            gameOver = true;
             alert("YOU WON THE GAME!");
         }
 
         if (computerScore === 5) {
+            gameOver = true;
             alert("COMPUTER WON THE GAME!");
         }
         const computer = document.querySelector(".ComputerWin");
@@ -73,6 +77,7 @@ rock.addEventListener("click", () => {
 const paper = document.querySelector(".CardPaper");
 
 paper.addEventListener("click", () => {
+    if (gameOver) return;
     console.log("paper clicked");
     const userChoice = "paper";
     history[userChoice]++;
@@ -119,10 +124,12 @@ paper.addEventListener("click", () => {
             computerScoreText.innerText = computerScore;
         }
         if (userScore === 5) {
+            gameOver = true;
             alert("YOU WON THE GAME!");
         }
 
         if (computerScore === 5) {
+            gameOver = true;
             alert("COMPUTER WON THE GAME!");
         }
         const computer = document.querySelector(".ComputerWin");
@@ -133,6 +140,7 @@ paper.addEventListener("click", () => {
 const scissors = document.querySelector(".CardScissors");
 
 scissors.addEventListener("click", () => {
+    if (gameOver) return;
     console.log("scissors clicked");
     const userChoice = "scissors";
     history[userChoice]++;
@@ -181,10 +189,12 @@ scissors.addEventListener("click", () => {
             computerScoreText.innerText = computerScore;
         }
         if (userScore === 5) {
+            gameOver = true;
             alert("YOU WON THE GAME!");
         }
 
         if (computerScore === 5) {
+            gameOver = true;
             alert("COMPUTER WON THE GAME!");
         }
         const computer = document.querySelector(".ComputerWin");
