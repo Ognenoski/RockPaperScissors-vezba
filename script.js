@@ -7,19 +7,35 @@ const computerScoreText = document.querySelector(".ComputerScore");
 
 let userScore = 0;
 let computerScore = 0;
+let history = {
+    rock: 0,
+    paper: 0,
+    scissors: 0,
+};
 rock.addEventListener("click", () => {
     console.log("rock clicked");
     const userChoice = "rock";
-
+    history[userChoice]++;
     user.style.backgroundImage = 'url("rock.png")';
     const option = ["rock", "paper", "scissors"];
-    const randomNumber = Math.floor(Math.random() * 3);
-    console.log(randomNumber);
+    let computerChoice;
+    if (history.rock > history.paper && history.rock > history.scissors) {
+        computerChoice = "paper";
+    }
+    else if (history.paper > history.rock && history.paper > history.scissors) {
+        computerChoice = "scissors";
+    }
+    else if (history.scissors > history.rock && history.scissors > history.paper) {
+        computerChoice = "rock";
+    }
+    else {
+        const options = ["rock", "paper", "scissors"];
+        const randomNumber = Math.floor(Math.random() * 3);
+        computerChoice = options[randomNumber];
+    }
     score.innerText = "COMPUTER THINKING...";
     score.style.color = "white";
     setTimeout(() => {
-
-        const computerChoice = option[randomNumber];
 
         if (userChoice === computerChoice) {
             score.innerText = "DRAW!";
@@ -59,15 +75,28 @@ const paper = document.querySelector(".CardPaper");
 paper.addEventListener("click", () => {
     console.log("paper clicked");
     const userChoice = "paper";
+    history[userChoice]++;
     user.style.backgroundImage = 'url("paper.png")';
     const option = ["rock", "paper", "scissors"];
-    const randomNumber = Math.floor(Math.random() * 3);
-    console.log(randomNumber);
+    let computerChoice;
+    if (history.rock > history.paper && history.rock > history.scissors) {
+        computerChoice = "paper";
+    }
+    else if (history.paper > history.rock && history.paper > history.scissors) {
+        computerChoice = "scissors";
+    }
+    else if (history.scissors > history.rock && history.scissors > history.paper) {
+        computerChoice = "rock";
+    }
+    else {
+        const randomNumber = Math.floor(Math.random() * 3);
+        console.log(randomNumber);
+        computerChoice = option[randomNumber];
+    }
     score.innerText = "COMPUTER THINKING...";
     score.style.color = "white";
     setTimeout(() => {
 
-        const computerChoice = option[randomNumber];
         console.log(computerChoice);
         if (userChoice === computerChoice) {
             score.innerText = "DRAW!";
@@ -106,6 +135,7 @@ const scissors = document.querySelector(".CardScissors");
 scissors.addEventListener("click", () => {
     console.log("scissors clicked");
     const userChoice = "scissors";
+    history[userChoice]++;
     user.style.backgroundImage = 'url("scissors.png")';
     const option = ["rock", "paper", "scissors"];
     const randomNumber = Math.floor(Math.random() * 3);
@@ -114,8 +144,20 @@ scissors.addEventListener("click", () => {
     score.style.color = "white";
     setTimeout(() => {
 
-        const computerChoice = option[randomNumber];
-        console.log(computerChoice);
+
+        let computerChoice;
+        if (history.rock > history.paper && history.rock > history.scissors) {
+            computerChoice = "paper";
+        }
+        else if (history.paper > history.rock && history.paper > history.scissors) {
+            computerChoice = "scissors";
+        }
+        else if (history.scissors > history.rock && history.scissors > history.paper) {
+            computerChoice = "rock";
+        }
+        else {
+            computerChoice = option[randomNumber];
+        }
         if (userChoice === computerChoice) {
             score.innerText = "DRAW!";
             score.style.color = "#ff9100";
